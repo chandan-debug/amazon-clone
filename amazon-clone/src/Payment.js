@@ -50,7 +50,7 @@ function Payment() {
             }
         }).then(({ paymentIntent }) => {
             // paymentIntent = payment confirmation
-
+            console.log(paymentIntent)
             db
               .collection('users')
               .doc(user?.uid)
@@ -71,6 +71,8 @@ function Payment() {
             })
 
             navigate('/orders')
+        }).catch((error)=>{
+            console.log(error)
         })
 
     }

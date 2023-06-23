@@ -24,9 +24,8 @@ app.post("/payments/create", async (request, response) => {
 
   const paymentIntent = await stripe.paymentIntents.create({
     amount: total, // subunits of the currency
-    currency: "usd",
+    currency: "INR",
   });
-
   // OK - Created
   response.status(201).send({
     clientSecret: paymentIntent.client_secret,
@@ -37,4 +36,4 @@ app.post("/payments/create", async (request, response) => {
 exports.api = functions.https.onRequest(app);
 
 // Example endpoint
-// http://localhost:5001/challenge-4b2b2/us-central1/api
+// http://127.0.0.1:5001/clone-a4dee/us-central1/api

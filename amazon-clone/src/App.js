@@ -6,10 +6,16 @@ import Checkout from "./Checkout";
 import { useStateValue } from "./StateProvider";
 import Login from "./Login";
 import Payment from "./Payment";
+import Orders from "./Orders";
+
 import { auth } from "./firebase";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
 //import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Order from "./Order";
 
 const promise = loadStripe(
   "pk_test_51NKK8ASJCcCDmXfDtiWVUjInOKUhWPUp5NY4yhQ1z15TdAus7dO7yuQiWCStqzMNzB3Kk1ruLzaYcdxDX3rkI30600ucCjjwdP"
@@ -49,7 +55,11 @@ return (
         <Route path="/" element={<Home/>}/>
         <Route path="/checkout" element= {<Checkout/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/payment" element={<Payment/>}/>
+        <Route path="/orders" element={<Orders/>}/>
+        
+        <Route path="/payment" element={<Elements stripe={promise}><Payment/></Elements>}/>
+        
+        
 
         </Routes>
     </Router>

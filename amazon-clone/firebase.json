@@ -19,8 +19,8 @@
       "codebase": "functions"
     },
     {
-      "source": "codebase",
-      "codebase": "codebase",
+      "source": "functions",
+      "codebase": "functions",
       "ignore": [
         "node_modules",
         ".git",
