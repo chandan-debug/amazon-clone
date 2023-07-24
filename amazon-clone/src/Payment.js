@@ -30,6 +30,7 @@ function Payment() {
                 // Stripe expects the total in a currencies subunits
                 url: `/payments/create?total=${getBasketTotal(basket) * 100}`
             });
+            console.log(response)
             setClientSecret(response.data.clientSecret)
         }
 
